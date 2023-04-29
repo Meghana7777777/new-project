@@ -1,0 +1,36 @@
+apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
+kind: Deployment
+metadata:
+  name: blue
+  namespace: dev
+spec:
+  selector:
+    matchLabels:
+      app: blue
+  replicas: 3 # tells deployment to run 2 pods matching the template
+  template:
+    metadata:
+      labels:
+        app: blue
+        tier: frontend
+    spec:
+      containers:
+      - name: blue
+        image: ${REPOSITORY_TAG}
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: blue
+  namespace: dev
+spec:
+  selector:
+    app: blue
+    tier: frontend
+  ports:
+  - name: http
+    port: 80
+    targetPort: 8080
+  type: LoadBalancer
