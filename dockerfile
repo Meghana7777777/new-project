@@ -5,5 +5,5 @@ MAINTAINER Meghana
 
 RUN apt-get update
 
-CMD [ echo, "this is my first docker image" ]
+CMD [ "echo", "this is my first docker image" ]
 
