@@ -1,0 +1,11 @@
+ami_id = "ami-007855ac798b5175e"
+inst_type = "t2.micro"
+key_name = "elb-key"
+sg_ids = ["sg-054f0312e8770de28"]
+subnet_id = "subnet-006c23cc57955c59c"
+vpc_id = "vpc-0a3feac4327c2f1e8"
+aws_region = "us-east-1"
+environment = "dev"
+solution = "sales"
+appsg_name = "dev-sales-appsg"
+lbsg_name = "dev-sales-lbsg"
