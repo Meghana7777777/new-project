@@ -1,0 +1,13 @@
+---
+- name: install apache2 (httpd)
+  apt:
+    name: apache2
+    state: present
+  notify: restart apache server
+
+- name: copy index.html file
+  copy:
+    src: index.html
+    dest: /var/www/html/
+  notify: restart apache server
+
